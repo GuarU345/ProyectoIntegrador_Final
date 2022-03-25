@@ -1,0 +1,51 @@
+.primero{
+  background-color: black;
+  height: 617px;
+}
+.segundo{
+  background-color: beige;
+  height: 600px;
+}
+.primertitulo{
+  color: white;
+  text-align: center;
+  margin-top: 40px;
+}
+.logoreg{
+  color: white;
+  text-align: center;
+}
+.mov{
+  width: 100%;
+}
+.form-login{
+  width: 500px;
+  height: 400px;
+}
+.log{
+  margin-top: 50px;
+  color: black;
+  text-align: center;
+}
+.card{
+  margin-top: 130px;
+  margin-left: 100px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.a{
+  padding-left: 153px;
+  color: rgb(0, 193, 252);
+}
+.inputs{
+  width: 250px;
+  margin-left: 130px;
+}
+.img{
+  width: 200px;
+  margin-top: 100px;
+  margin-left: 220px;
+}
