@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { usuario } from 'src/app/Modelos/Usuario';
+import { LogRegService } from 'src/app/Servicios/log-reg.service';
 
 @Component({
   selector: 'app-register',
@@ -7,7 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  FormularioRegistro= new FormGroup({
+
+    Email:new FormControl(null,[Validators.required,Validators.email]),
+    Password: new FormControl(null,[Validators.required]),
+  })
+
+  registro:usuario={
+    "email":'',
+    "password":''
+  }
+
+  constructor(private servicereg:LogRegService) {
+
+   }
+   register(){
+     this.servicereg.register(this.registro).subscribe((reg:any)=>{
+       this.registro=reg
+       alert("Registrado Exitosamente")
+     })
+
+   }
 
   ngOnInit(): void {
   }
