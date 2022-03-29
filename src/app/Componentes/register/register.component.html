@@ -10,10 +10,18 @@
       <h3 class="log">REGISTER</h3>
       <form [formGroup]="FormularioRegistro">
             <label class="form-label inputs">Email</label>
-            <input type="email" formControlName="Email" [(ngModel)]="registro.email" class="form-control inputs">
+            <input type="email"
+             formControlName="Email"
+             [(ngModel)]="registro.email"
+             class="form-control inputs"
+             [class.is-invalid]="CorreoValidation">
             <label class="form-label inputs">Password</label>
-            <input type="password" formControlName="Password" [(ngModel)]="registro.password" class="form-control inputs"><br>
-            <button type="submit" (click)="register()" class="btn btn-primary form-control inputs">Registrarse</button><br><br>
+            <input type="password"
+            formControlName="Password"
+            [(ngModel)]="registro.password"
+            class="form-control inputs"
+            [class.is-invalid]="passwordValidation"><br>
+            <button type="submit" (click)="register()" class="btn btn-primary form-control inputs" [disabled]="CorreoValidation" [disabled]="passwordValidation">Registrarse</button><br><br>
             <button type="submit" routerLink="/login" class="btn btn-warning form-control inputs">Cancelar</button>
       </form>
     </div>

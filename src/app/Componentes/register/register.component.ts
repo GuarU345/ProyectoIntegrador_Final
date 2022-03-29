@@ -35,4 +35,16 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  get CorreoValidation(){
+    return(
+      this.FormularioRegistro.get('Email')?.invalid && this.FormularioRegistro.get('Email')?.touched
+    )
+  }
+
+  get passwordValidation(){
+    return(
+      this.FormularioRegistro.get('Password')?.invalid && this.FormularioRegistro.get('Password')?.touched
+    )
+  }
+
 }

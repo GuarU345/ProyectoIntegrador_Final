@@ -42,4 +42,16 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  get CorreoValidation(){
+    return(
+      this.FormularioLogueo.get('Email')?.invalid && this.FormularioLogueo.get('Email')?.touched
+    )
+  }
+
+  get passwordValidation(){
+    return(
+      this.FormularioLogueo.get('Password')?.invalid && this.FormularioLogueo.get('Password')?.touched
+    )
+  }
+
 }

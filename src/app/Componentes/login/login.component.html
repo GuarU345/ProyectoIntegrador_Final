@@ -10,10 +10,18 @@
       <h3 class="log">LOGIN</h3>
       <form [formGroup]="FormularioLogueo">
             <label class="form-label inputs">Email</label>
-            <input type="email" formControlName="Email" [(ngModel)]="usuario.email" class="form-control inputs">
+            <input type="email"
+            formControlName="Email"
+            [(ngModel)]="usuario.email"
+            class="form-control inputs"
+            [class.is-invalid]="CorreoValidation">
             <label class="form-label inputs">Password</label>
-            <input type="password" formControlName="Password" [(ngModel)]="usuario.password" class="form-control inputs"><br>
-            <button type="submit" (click)="login()" class="btn btn-info form-control inputs">Logueate</button><br>
+            <input type="password"
+            formControlName="Password"
+            [(ngModel)]="usuario.password"
+            class="form-control inputs"
+            [class.is-invalid]="passwordValidation"><br>
+            <button type="submit" (click)="login()" class="btn btn-info form-control inputs" [disabled]="CorreoValidation" [disabled]="passwordValidation">Logueate</button><br>
             <a routerLink="/register" class="a nav-link">si no estas registrado da click</a>
       </form>
     </div>
