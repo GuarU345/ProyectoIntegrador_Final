@@ -1,3 +1,4 @@
+import { InterceptorCerrarSesionService } from './Componentes/Interceptores/interceptor-cerrar-sesion.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -5,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Componentes/login/login.component';
 import { RegisterComponent } from './Componentes/register/register.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { IniciosensoresComponent } from './Componentes/iniciosensores/iniciosensores.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PantallacargaComponent } from './Componentes/pantallacarga/pantallacarga.component';
@@ -34,7 +35,13 @@ import { NgChartsModule } from 'ng2-charts';
     BrowserAnimationsModule,
     NgChartsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorCerrarSesionService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

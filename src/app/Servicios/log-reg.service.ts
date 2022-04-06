@@ -18,20 +18,12 @@ export class LogRegService {
    return this.httpclient.post(direccion,log)
   }
   token(dat:any){
-    const token=localStorage.getItem("token")
-    const header=new HttpHeaders({
-      'Authorization':'Bearer '+token
-    })
     const direccion=this.url+"token"
-    return this.httpclient.post(direccion,dat,{headers:header})
+    return this.httpclient.post(direccion,dat)
   }
   logout(){
-    const token=localStorage.getItem("token")
-    const header=new HttpHeaders({
-      'Authorization':'Bearer '+token
-    })
     const direccion=this.url+"logout"
-    return this.httpclient.get(direccion,{headers:header})
+    return this.httpclient.get(direccion)
   }
 
 
