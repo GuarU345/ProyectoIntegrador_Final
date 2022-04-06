@@ -1,0 +1,24 @@
+.fondo{
+background-color: black;
+position: fixed;
+height: 617px;
+width: 100%;
+}
+.card{
+  color: black;
+  margin-top: 200px;
+  margin-left: 467px;
+  width: 500px;
+  height: 150px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+.txt1{
+  font-size: 50px;
+  font-family: 'Courier New';
+  margin-top: 20px;
+  text-align: center;
+}

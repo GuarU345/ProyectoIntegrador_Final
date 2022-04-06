@@ -9,6 +9,10 @@
     <div class="form-login card">
       <h3 class="log">REGISTER</h3>
       <form [formGroup]="FormularioRegistro">
+            <label class="form-label inputs">Username</label>
+            <input type="text" class="form-control inputs"
+            formControlName="Usuario"
+            [(ngModel)]="registro.username" [class.is-invalid]="UsuarioValidation">
             <label class="form-label inputs">Email</label>
             <input type="email"
              formControlName="Email"

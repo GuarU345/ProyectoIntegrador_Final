@@ -20,15 +20,15 @@
 }
 .form-login{
   width: 500px;
-  height: 400px;
+  height: 450px;
 }
 .log{
-  margin-top: 50px;
+  margin-top: 40px;
   color: black;
   text-align: center;
 }
 .card{
-  margin-top: 130px;
+  margin-top: 90px;
   margin-left: 100px;
   border-radius: 10px;
   -webkit-border-radius: 10px;

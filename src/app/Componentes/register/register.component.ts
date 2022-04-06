@@ -11,12 +11,13 @@ import { LogRegService } from 'src/app/Servicios/log-reg.service';
 export class RegisterComponent implements OnInit {
 
   FormularioRegistro= new FormGroup({
-
+    Usuario:new FormControl(null,[Validators.required]),
     Email:new FormControl(null,[Validators.required,Validators.email]),
     Password: new FormControl(null,[Validators.required]),
   })
 
   registro:usuario={
+    "username":'',
     "email":'',
     "password":''
   }
@@ -25,14 +26,28 @@ export class RegisterComponent implements OnInit {
 
    }
    register(){
-     this.servicereg.register(this.registro).subscribe((reg:any)=>{
-       this.registro=reg
-       alert("Registrado Exitosamente")
-     })
+      this.servicereg.register(this.registro).subscribe((reg:any)=>{
+        this.registro=reg
+        this.registro.username=""
+        this.registro.email=""
+        this.registro.password=""
+        console.log(reg)
+
+      },error=>{
+        alert(error.error.errors[0].message)
+      })
+
+
 
    }
 
   ngOnInit(): void {
+  }
+
+  get UsuarioValidation(){
+    return(
+      this.FormularioRegistro.get('Usuario')?.invalid && this.FormularioRegistro.get('Usuario')?.touched
+    )
   }
 
   get CorreoValidation(){
