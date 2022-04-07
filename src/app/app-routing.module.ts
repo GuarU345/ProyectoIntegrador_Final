@@ -11,13 +11,10 @@ const routes: Routes = [
   {path: '', redirectTo:'login', pathMatch:'full'},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
-  {path:'inicio',component:IniciosensoresComponent,
-  children:[
-
-    {path:'',component:InicioComponent},
-    {path:'graftemp',component:GraficatemperaturaComponent}
-]},
-{path:'carga',component:PantallacargaComponent}
+  {path:'inicio',component:IniciosensoresComponent},
+  {path:'',component:InicioComponent},
+  {path:'graftemp',component:GraficatemperaturaComponent},
+  {path:'carga',component:PantallacargaComponent}
 ]
 
 @NgModule({

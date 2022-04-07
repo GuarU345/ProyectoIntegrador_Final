@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
 
+import { Component, OnInit } from '@angular/core';
+import { SensorTemperaturaService } from '../../../Servicios/sensor-temperatura.service'
+import { Chart, registerables } from 'chart.js'
+import { mostrar } from '../../../Modelos/datos'
 
 
 @Component({
@@ -9,11 +12,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GraficatemperaturaComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private api:SensorTemperaturaService) {
+    Chart.register(...registerables)
+   }
+  
+  mostrar:mostrar={
+    "temperatura":'',
+    "humedad":''
   }
+  Chart:any=[]
+  Utils:any
+  ngOnInit(): void {
+    this.api.mostrar().subscribe((dat:any) => {
+      this.mostrar = dat
+      console.log(this.mostrar)
 
 
+
+})
 }
-
+}
