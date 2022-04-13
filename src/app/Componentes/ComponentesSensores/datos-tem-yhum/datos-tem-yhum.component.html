@@ -1,0 +1,22 @@
+<app-iniciosensores></app-iniciosensores><br>
+
+<div class="container">
+    <h1 class="color" align="center">Datos Temperatura y Humedad</h1>
+
+    <table class="table table-dark table-hover table-striped table-bordered">
+        <thead>
+          <tr>
+            <th width="20%" class="text-center">#</th>
+            <th width="40%" class="text-center">Temperatura</th>
+            <th width="40%" class="text-center">Humedad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let datos of mostrarDatos" (click)="MostrarGrafica(datos._id)">
+            <td class="text-center">{{ datos._id }}</td>
+            <td class="text-center">{{ datos.Temperatura }}</td>
+            <td class="text-center">{{ datos.Humedad }}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>

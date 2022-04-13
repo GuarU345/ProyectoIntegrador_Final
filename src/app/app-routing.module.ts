@@ -6,6 +6,10 @@ import { IniciosensoresComponent } from './Componentes/iniciosensores/iniciosens
 import { LoginComponent } from './Componentes/login/login.component';
 import { PantallacargaComponent } from './Componentes/pantallacarga/pantallacarga.component';
 import { RegisterComponent } from './Componentes/register/register.component';
+import { DatosTemYHumComponent } from './Componentes/ComponentesSensores/datos-tem-yhum/datos-tem-yhum.component'
+import { DatosGasComponent } from './Componentes/ComponentesSensores/datos-gas/datos-gas.component'
+import { GraficaGasComponent } from './Componentes/ComponentesSensores/grafica-gas/grafica-gas.component'
+import { DatosMovimientoComponent } from './Componentes/ComponentesSensores/datos-movimiento/datos-movimiento.component'
 
 const routes: Routes = [
   {path: '', redirectTo:'login', pathMatch:'full'},
@@ -13,8 +17,12 @@ const routes: Routes = [
   {path:'register',component:RegisterComponent},
   {path:'inicio',component:IniciosensoresComponent},
   {path:'',component:InicioComponent},
-  {path:'graftemp',component:GraficatemperaturaComponent},
-  {path:'carga',component:PantallacargaComponent}
+  {path:'carga',component:PantallacargaComponent},
+  {path:'DatosTemyHum',component:DatosTemYHumComponent},
+  {path:'grafTempyHum/:id',component:GraficatemperaturaComponent},
+  {path:'DatosGas',component:DatosGasComponent},
+  {path:'grafGas/:id',component:GraficaGasComponent},
+  {path:'DatosMovimiento',component:DatosMovimientoComponent},
 ]
 
 @NgModule({

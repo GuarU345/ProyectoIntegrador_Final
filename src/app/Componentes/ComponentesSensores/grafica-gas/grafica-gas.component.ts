@@ -1,34 +1,32 @@
-
 import { Component, OnInit } from '@angular/core';
-import { SensorTemYHumService } from '../../../Servicios/sensor-tem-y-hum.service'
+import { SensorGasService } from '../../../Servicios/sensor-gas.service'
 import { Chart, registerables } from 'chart.js'
-import { mostrarDato } from '../../../Modelos/datosTemyHum'
+import { mostrarDato } from '../../../Modelos/datosGas'
 import { Router, ActivatedRoute } from '@angular/router'
 
-
 @Component({
-  selector: 'app-graficatemperatura',
-  templateUrl: './graficatemperatura.component.html',
-  styleUrls: ['./graficatemperatura.component.css']
+  selector: 'app-grafica-gas',
+  templateUrl: './grafica-gas.component.html',
+  styleUrls: ['./grafica-gas.component.css']
 })
-export class GraficatemperaturaComponent implements OnInit {
+export class GraficaGasComponent implements OnInit {
 
-  constructor(private api:SensorTemYHumService,private activarrouter:ActivatedRoute,private router:Router) {
+  constructor(private api:SensorGasService,private activarrouter:ActivatedRoute,private router:Router) {
     Chart.register(...registerables)
    }
-  
+
   mostrar!:mostrarDato[]
   chart: any = []
 
   ngOnInit(): void {
     let datosid = this.activarrouter.snapshot.paramMap.get('id')
-    this.api.DatosTemyHum(datosid).subscribe(data => {
+    this.api.DatosGas(datosid).subscribe(data => {
       this.mostrar = data
 
       this.mostrar.forEach(data => {
 
         this.chart = new Chart('canvas', {
-          type: 'bar',
+          type: 'line',
           data: {
             datasets: [
               {
@@ -45,4 +43,5 @@ export class GraficatemperaturaComponent implements OnInit {
       
     })
   }
+
 }

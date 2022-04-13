@@ -1,4 +1,8 @@
-.fondo{
+.container{
   background-color: black;
+  width: 1000px;
 }
 
+.color{
+  color: white;
+}
