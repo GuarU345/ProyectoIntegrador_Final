@@ -3,15 +3,15 @@ import { Router } from '@angular/router';
 import { LogRegService } from 'src/app/Servicios/log-reg.service';
 
 @Component({
-  selector: 'app-iniciosensores',
-  templateUrl: './iniciosensores.component.html',
-  styleUrls: ['./iniciosensores.component.css']
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
 })
-export class IniciosensoresComponent implements OnInit {
+export class DashboardComponent implements OnInit {
 
   constructor(private inicioservice:LogRegService,private router:Router) { }
-  ngOnInit(): void {
 
+  ngOnInit(): void {
   }
   getUsuario(){
     return localStorage.getItem("usuario")
@@ -24,4 +24,5 @@ export class IniciosensoresComponent implements OnInit {
     localStorage.removeItem("token")
     this.router.navigate(['/login'])
   }
+
 }

@@ -48,3 +48,14 @@
   margin-top: 100px;
   margin-left: 220px;
 }
+.spinner{
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  height: 2pc;
+  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  -o-transform: translate(-50%,-50%);
+}
