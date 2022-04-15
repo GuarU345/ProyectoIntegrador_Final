@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { interval } from 'rxjs';
 import { mostrarDatos } from '../../../Modelos/datosMovimiento'
 import { SensorMovimientoService } from '../../../Servicios/sensor-movimiento.service'
 import { Route, Router } from '@angular/router'
@@ -15,8 +16,12 @@ export class DatosMovimientoComponent implements OnInit {
   constructor(private api:SensorMovimientoService,private router:Router) { }
 
   ngOnInit(): void {
-    this.api.mostrarMovimiento().subscribe(data => {
-      this.datosmovimiento = data
+    const contador=interval(3000)
+    contador.subscribe(()=>{
+      this.api.mostrarMovimiento().subscribe(data => {
+        this.datosmovimiento = data
+        console.log(this.datosmovimiento)
+      })
     })
   }
 

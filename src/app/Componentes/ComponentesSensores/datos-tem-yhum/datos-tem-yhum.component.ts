@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { interval } from 'rxjs';
 import { mostrarDatos } from '../../../Modelos/datosTemyHum'
 import { SensorTemYHumService } from '../../../Servicios/sensor-tem-y-hum.service'
 import { Route, Router } from '@angular/router'
@@ -15,9 +16,12 @@ export class DatosTemYHumComponent implements OnInit {
   mostrarDatos!:mostrarDatos[]
 
   ngOnInit(): void {
-    this.api.mostrarTemyHum().subscribe(data => {
-      this.mostrarDatos = data
-      console.log(data)
+    const contador=interval(3000)
+    contador.subscribe(()=>{
+      this.api.mostrarTemyHum().subscribe(data => {
+        this.mostrarDatos = data
+        console.log(data)
+      })
     })
   }
 

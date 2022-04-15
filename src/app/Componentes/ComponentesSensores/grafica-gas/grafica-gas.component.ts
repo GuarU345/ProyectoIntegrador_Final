@@ -1,3 +1,4 @@
+import { interval } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { SensorGasService } from '../../../Servicios/sensor-gas.service'
 import { Chart, registerables } from 'chart.js'
@@ -19,29 +20,88 @@ export class GraficaGasComponent implements OnInit {
   chart: any = []
 
   ngOnInit(): void {
-    let datosid = this.activarrouter.snapshot.paramMap.get('id')
-    this.api.DatosGas(datosid).subscribe(data => {
+    this.api.DatosGas().subscribe(data => {
       this.mostrar = data
-
-      this.mostrar.forEach(data => {
+      console.log(data)
 
         this.chart = new Chart('canvas', {
-          type: 'line',
+          type: 'bar',
           data: {
+            labels: ['gas'],
             datasets: [
               {
                 label: 'Datos',
-                data: data,
+                data: data[0],
                 borderWidth: 3,
-                backgroundColor: '',
-                borderColor: '#3e95cd',
+                backgroundColor: "green",
+                borderColor: '#1e95fd',
+              },
+              {
+                label: 'Datos',
+                data: data[1],
+                borderWidth: 3,
+                backgroundColor: "green",
+                borderColor: '#1e95fd',
+              },
+              {
+                label: 'Datos',
+                data: data[2],
+                borderWidth: 3,
+                backgroundColor: "green",
+                borderColor: '#1e95fd',
+              },
+              {
+                label: 'Datos',
+                data: data[3],
+                borderWidth: 3,
+                backgroundColor: "green",
+                borderColor: '#1e95fd',
+              },
+              {
+                label: 'Datos',
+                data: data[4],
+                borderWidth: 3,
+                backgroundColor: "green",
+                borderColor: '#1e95fd',
+              },
+              {
+                label: 'Datos',
+                data: data[5],
+                borderWidth: 3,
+                backgroundColor: "green",
+                borderColor: '#1e95fd',
+              },
+              {
+                label: 'Datos',
+                data: data[6],
+                borderWidth: 3,
+                backgroundColor: "green",
+                borderColor: '#1e95fd',
+              },
+              {
+                label: 'Datos',
+                data: data[7],
+                borderWidth: 3,
+                backgroundColor: "green",
+                borderColor: '#1e95fd',
+              },
+              {
+                label: 'Datos',
+                data: data[8],
+                borderWidth: 3,
+                backgroundColor: "green",
+                borderColor: '#1e95fd',
+              },
+              {
+                label: 'Datos',
+                data: data[9],
+                borderWidth: 3,
+                backgroundColor: "green",
+                borderColor: '#1e95fd',
               }
             ]
           }
         })
       })
-      
-    })
   }
-
 }

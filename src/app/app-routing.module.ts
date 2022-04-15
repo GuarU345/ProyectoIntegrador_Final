@@ -20,8 +20,7 @@ const routes: Routes = [
   {path:'carga',component:PantallacargaComponent},
   {path:'DatosTemyHum',component:DatosTemYHumComponent},
   {path:'grafTempyHum/:id',component:GraficatemperaturaComponent},
-  {path:'DatosGas',component:DatosGasComponent},
-  {path:'grafGas/:id',component:GraficaGasComponent},
+  {path:'grafGas',component:GraficaGasComponent},
   {path:'DatosMovimiento',component:DatosMovimientoComponent},
 ]
 

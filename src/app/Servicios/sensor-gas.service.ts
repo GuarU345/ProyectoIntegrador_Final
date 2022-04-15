@@ -12,13 +12,8 @@ export class SensorGasService {
 
   constructor(private httpclient:HttpClient) { }
 
-  mostrarGas(): Observable<mostrarDatos[]>{
-    const direccion=this.url+"mostrarGas"
-    return this.httpclient.get<mostrarDatos[]>(direccion)
-  }
-
-  DatosGas(id:any): Observable<mostrarDatos[]>{
-    const direccion=this.url+"DatosGas/" + id
+  DatosGas(): Observable<mostrarDatos[]>{
+    const direccion=this.url+"DatosGas"
     return this.httpclient.get<mostrarDatos[]>(direccion)
   }
 }

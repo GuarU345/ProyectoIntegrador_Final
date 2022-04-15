@@ -15,14 +15,10 @@ export class DatosGasComponent implements OnInit {
   constructor(private api:SensorGasService,private router:Router) { }
 
   ngOnInit(): void {
-    this.api.mostrarGas().subscribe(data => {
+    this.api.DatosGas().subscribe(data => {
       this.datosgas = data
       console.log(this.datosgas)
     })
-  }
-
-  MostrarGrafica(id: any){
-    this.router.navigate(['grafGas', id])
   }
 
 }

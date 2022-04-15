@@ -28,17 +28,40 @@ export class GraficatemperaturaComponent implements OnInit {
       this.mostrar.forEach(data => {
 
         this.chart = new Chart('canvas', {
-          type: 'bar',
+          type: 'line',
           data: {
+            labels: ['temperatura', 'humedad'],
             datasets: [
               {
-                label: 'Datos',
+                label: 'Datos Temperatura y Humedad',
                 data: data,
-                borderWidth: 3,
-                backgroundColor: '',
-                borderColor: '#3e95cd',
+                fill: false,
+                backgroundColor: 'rgba(60,141,188,0.9)',
+                borderColor: 'rgba(60,141,188,0.8)'
               }
             ]
+          },
+          options: {
+            animations: {
+              tension: {
+                duration: 1000,
+                easing: 'linear',
+                from: 20,
+                to: 0,
+                loop: true
+              }
+            },
+            scales: {
+              y: { // defining min and max so hiding the dataset does not change scale range
+                min: 0,
+                max: 100
+              }
+            },
+            layout: {
+              padding: {
+                  left: 50
+              }
+            }
           }
         })
       })
