@@ -1,4 +1,9 @@
-<div class="">
+<div *ngIf="!load">
+<div class="spinner">
+  <img src="assets/img/gif spin.gif" alt="">
+</div>
+</div>
+<div *ngIf="load">
   <div class="row align-items-start mov">
     <div class="col primero">
       <img src="../../../assets/smart-house.png" class="img" alt="">

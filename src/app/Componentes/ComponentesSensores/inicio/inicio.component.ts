@@ -9,7 +9,11 @@ export class InicioComponent implements OnInit {
 
   constructor() { }
 
+  public load:boolean=false
   ngOnInit(): void {
+    setTimeout(()=>{
+      this.load=true
+    },2500)
   }
 
 }
