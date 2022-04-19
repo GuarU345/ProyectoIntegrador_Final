@@ -1,0 +1,35 @@
+<app-dashboard></app-dashboard>
+
+<div align="center" class="container form-control" id="datouno">
+    <h1 align="center" class="color">Sensor Led</h1>
+    <form [formGroup]="nuevoFormuno" (ngSubmit)="postForm(nuevoFormuno.value)">
+        <input type="hidden" formControlName="led">
+        <button id="botonuno" type="submit" class="btn btn-success">
+            Encender
+        </button>
+    </form>
+    <form [formGroup]="nuevoFormdos" (ngSubmit)="postForm(nuevoFormdos.value)">
+        <input type="hidden" formControlName="led">
+        <button id="botondos" type="submit" class="btn btn-danger">
+            Apagar
+        </button>
+    </form>
+</div>
+
+<div class="container" id="datodos">
+    <h1 align="center" class="color">Datos Led</h1>
+    <table class="table table-dark table-hover table-striped table-bordered">
+        <thead>
+          <tr>
+            <th width="50%" class="text-center">Led</th>
+            <th width="50%" class="text-center">Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let datos of datosled">
+                <td class="text-center">{{ datos.led }}</td>
+                <td class="text-center">{{ datos.fecha }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -16,4 +16,9 @@ export class SensorGasService {
     const direccion=this.url+"DatosGas"
     return this.httpclient.get<mostrarDatos[]>(direccion)
   }
+
+  DatosGasGrafica(): Observable<mostrarDatos[]>{
+    const direccion=this.url+"DatosGasGrafica"
+    return this.httpclient.get<mostrarDatos[]>(direccion)
+  }
 }

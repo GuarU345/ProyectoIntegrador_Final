@@ -5,10 +5,9 @@ import { InicioComponent } from './Componentes/ComponentesSensores/inicio/inicio
 import { LoginComponent } from './Componentes/login/login.component';
 import { PantallacargaComponent } from './Componentes/pantallacarga/pantallacarga.component';
 import { RegisterComponent } from './Componentes/register/register.component';
-import { DatosTemYHumComponent } from './Componentes/ComponentesSensores/datos-tem-yhum/datos-tem-yhum.component'
-import { DatosGasComponent } from './Componentes/ComponentesSensores/datos-gas/datos-gas.component'
 import { GraficaGasComponent } from './Componentes/ComponentesSensores/grafica-gas/grafica-gas.component'
 import { DatosMovimientoComponent } from './Componentes/ComponentesSensores/datos-movimiento/datos-movimiento.component'
+import { GraficaLedComponent } from './Componentes/ComponentesSensores/grafica-led/grafica-led.component'
 
 const routes: Routes = [
   {path: '', redirectTo:'login', pathMatch:'full'},
@@ -16,9 +15,9 @@ const routes: Routes = [
   {path:'register',component:RegisterComponent},
   {path:'inicio',component:InicioComponent},
   {path:'carga',component:PantallacargaComponent},
-  {path:'DatosTemyHum',component:DatosTemYHumComponent},
-  {path:'grafTempyHum/:id',component:GraficatemperaturaComponent},
+  {path:'grafTempyHum',component:GraficatemperaturaComponent},
   {path:'grafGas',component:GraficaGasComponent},
+  {path:'grafLed',component:GraficaLedComponent},
   {path:'DatosMovimiento',component:DatosMovimientoComponent},
 ]
 

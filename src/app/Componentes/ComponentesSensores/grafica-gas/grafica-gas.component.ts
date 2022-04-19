@@ -20,7 +20,7 @@ export class GraficaGasComponent implements OnInit {
   chart: any = []
 
   ngOnInit(): void {
-    this.api.DatosGas().subscribe(data => {
+    this.api.DatosGasGrafica().subscribe(data => {
       this.mostrar = data
       console.log(data)
 
@@ -102,6 +102,18 @@ export class GraficaGasComponent implements OnInit {
             ]
           }
         })
+    })
+
+    this.MostrarDatos()
+  }
+
+  MostrarDatos(){
+    const contador=interval(5000)
+    contador.subscribe(()=>{
+      this.api.DatosGas().subscribe(data => {
+        this.mostrar = data
+        console.log(this.mostrar)
       })
+    })
   }
 }

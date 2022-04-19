@@ -12,13 +12,13 @@ export class SensorTemYHumService {
 
   constructor(private httpclient:HttpClient) { }
 
-  mostrarTemyHum(): Observable<mostrarDatos[]>{
-    const direccion=this.url+"mostrarTemyHum"
+  DatosTemyHum(): Observable<mostrarDatos[]>{
+    const direccion=this.url+"DatosTemyHum"
     return this.httpclient.get<mostrarDatos[]>(direccion)
   }
 
-  DatosTemyHum(id:any): Observable<mostrarDatos[]>{
-    const direccion=this.url+"DatosTemyHum/" + id
+  DatosTemyHumGrafica(): Observable<mostrarDatos[]>{
+    const direccion=this.url+"DatosTemyHumGrafica"
     return this.httpclient.get<mostrarDatos[]>(direccion)
   }
 }

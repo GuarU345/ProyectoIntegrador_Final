@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DatosGasComponent } from './datos-gas.component';
+import { GraficaLedComponent } from './grafica-led.component';
 
-describe('DatosGasComponent', () => {
-  let component: DatosGasComponent;
-  let fixture: ComponentFixture<DatosGasComponent>;
+describe('GraficaLedComponent', () => {
+  let component: GraficaLedComponent;
+  let fixture: ComponentFixture<GraficaLedComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DatosGasComponent ]
+      declarations: [ GraficaLedComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DatosGasComponent);
+    fixture = TestBed.createComponent(GraficaLedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,8 +1,19 @@
-.container{
+#datouno{
   background-color: black;
-  width: 1000px;
+  margin-top: 30px;
+  width: 560px;
+  height: 550px;
+  float: left;
 }
 
 .color{
   color: white;
+}
+
+#datodos{
+  background-color: black;
+  margin-top: 30px;
+  width: 789px;
+  height: 550px;
+  float: left;
 }

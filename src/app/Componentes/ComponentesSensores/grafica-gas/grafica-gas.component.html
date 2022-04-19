@@ -1,5 +1,24 @@
 <app-dashboard></app-dashboard>
-<div class="container">
+
+<div class="container" id="datouno">
+    <h1 align="center" class="color">Datos Gas</h1>
+    <table class="table table-dark table-hover table-striped table-bordered">
+        <thead>
+          <tr>
+            <th width="50%" class="text-center">Gas</th>
+            <th width="50%" class="text-center">Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let datos of mostrar">
+            <td class="text-center">{{ datos.gas }}</td>
+            <td class="text-center">{{ datos.fecha }}</td>
+          </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="container" id="datodos">
     <h1 class="color" align="center">Grafica Datos</h1>
     <canvas id="canvas">{{ chart }}</canvas>
 </div>

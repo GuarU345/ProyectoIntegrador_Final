@@ -4,6 +4,7 @@ import { SensorTemYHumService } from '../../../Servicios/sensor-tem-y-hum.servic
 import { Chart, registerables } from 'chart.js'
 import { mostrarDato } from '../../../Modelos/datosTemyHum'
 import { Router, ActivatedRoute } from '@angular/router'
+import { interval } from 'rxjs';
 
 
 @Component({
@@ -21,51 +22,100 @@ export class GraficatemperaturaComponent implements OnInit {
   chart: any = []
 
   ngOnInit(): void {
-    let datosid = this.activarrouter.snapshot.paramMap.get('id')
-    this.api.DatosTemyHum(datosid).subscribe(data => {
+    this.api.DatosTemyHumGrafica().subscribe(data => {
       this.mostrar = data
-
-      this.mostrar.forEach(data => {
+      console.log(data)
 
         this.chart = new Chart('canvas', {
-          type: 'line',
+          type: 'bar',
           data: {
-            labels: ['temperatura', 'humedad'],
+            labels: ['temperatura','humedad'],
             datasets: [
               {
-                label: 'Datos Temperatura y Humedad',
-                data: data,
-                fill: false,
-                backgroundColor: 'rgba(60,141,188,0.9)',
-                borderColor: 'rgba(60,141,188,0.8)'
+                label: 'Datos',
+                data: data[0],
+                borderWidth: 3,
+                backgroundColor: "green",
+                borderColor: '#1e95fd',
+              },
+              {
+                label: 'Datos',
+                data: data[1],
+                borderWidth: 3,
+                backgroundColor: "green",
+                borderColor: '#1e95fd',
+              },
+              {
+                label: 'Datos',
+                data: data[2],
+                borderWidth: 3,
+                backgroundColor: "green",
+                borderColor: '#1e95fd',
+              },
+              {
+                label: 'Datos',
+                data: data[3],
+                borderWidth: 3,
+                backgroundColor: "green",
+                borderColor: '#1e95fd',
+              },
+              {
+                label: 'Datos',
+                data: data[4],
+                borderWidth: 3,
+                backgroundColor: "green",
+                borderColor: '#1e95fd',
+              },
+              {
+                label: 'Datos',
+                data: data[5],
+                borderWidth: 3,
+                backgroundColor: "green",
+                borderColor: '#1e95fd',
+              },
+              {
+                label: 'Datos',
+                data: data[6],
+                borderWidth: 3,
+                backgroundColor: "green",
+                borderColor: '#1e95fd',
+              },
+              {
+                label: 'Datos',
+                data: data[7],
+                borderWidth: 3,
+                backgroundColor: "green",
+                borderColor: '#1e95fd',
+              },
+              {
+                label: 'Datos',
+                data: data[8],
+                borderWidth: 3,
+                backgroundColor: "green",
+                borderColor: '#1e95fd',
+              },
+              {
+                label: 'Datos',
+                data: data[9],
+                borderWidth: 3,
+                backgroundColor: "green",
+                borderColor: '#1e95fd',
               }
             ]
-          },
-          options: {
-            animations: {
-              tension: {
-                duration: 1000,
-                easing: 'linear',
-                from: 20,
-                to: 0,
-                loop: true
-              }
-            },
-            scales: {
-              y: { // defining min and max so hiding the dataset does not change scale range
-                min: 0,
-                max: 100
-              }
-            },
-            layout: {
-              padding: {
-                  left: 50
-              }
-            }
           }
         })
+    })
+
+    this.MostrarDatos()
+  }
+
+  MostrarDatos(){
+    const contador=interval(5000)
+    contador.subscribe(()=>{
+      this.api.DatosTemyHum().subscribe(data => {
+        this.mostrar = data
+        console.log(this.mostrar)
       })
-      
     })
   }
 }

@@ -1,6 +1,26 @@
 <app-dashboard></app-dashboard>
-<br>
-<div class="container">
+
+<div class="container" id="datouno">
+    <h1 align="center" class="color">Datos Temperatura y Humedad</h1>
+    <table class="table table-dark table-hover table-striped table-bordered">
+        <thead>
+          <tr>
+            <th width="25%" class="text-center">Temperatura</th>
+            <th width="25%" class="text-center">Humedad</th>
+            <th width="50%" class="text-center">Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let datos of mostrar">
+            <td class="text-center">{{ datos.temperatura }}</td>
+            <td class="text-center">{{ datos.humedad }}</td>
+            <td class="text-center">{{ datos.fecha }}</td>
+          </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="container" id="datodos">
     <h1 class="color" align="center">Grafica Datos</h1>
     <canvas id="canvas">{{ chart }}</canvas>
 </div>

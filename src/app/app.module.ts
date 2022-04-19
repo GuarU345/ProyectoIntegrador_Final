@@ -12,14 +12,10 @@ import { PantallacargaComponent } from './Componentes/pantallacarga/pantallacarg
 import { GraficatemperaturaComponent } from './Componentes/ComponentesSensores/graficatemperatura/graficatemperatura.component';
 import { InicioComponent } from './Componentes/ComponentesSensores/inicio/inicio.component';
 import { NgChartsModule } from 'ng2-charts';
-import { DatosTemYHumComponent } from './Componentes/ComponentesSensores/datos-tem-yhum/datos-tem-yhum.component';
-import { DatosGasComponent } from './Componentes/ComponentesSensores/datos-gas/datos-gas.component';
 import { GraficaGasComponent } from './Componentes/ComponentesSensores/grafica-gas/grafica-gas.component';
 import { DatosMovimientoComponent } from './Componentes/ComponentesSensores/datos-movimiento/datos-movimiento.component';
 import { DashboardComponent } from './Componentes/dashboard/dashboard.component';
-
-
-
+import { GraficaLedComponent } from './Componentes/ComponentesSensores/grafica-led/grafica-led.component';
 
 @NgModule({
   declarations: [
@@ -29,11 +25,10 @@ import { DashboardComponent } from './Componentes/dashboard/dashboard.component'
     PantallacargaComponent,
     GraficatemperaturaComponent,
     InicioComponent,
-    DatosTemYHumComponent,
-    DatosGasComponent,
     GraficaGasComponent,
     DatosMovimientoComponent,
-    DashboardComponent
+    DashboardComponent,
+    GraficaLedComponent
   ],
   imports: [
     BrowserModule,
