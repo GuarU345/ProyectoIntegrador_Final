@@ -1,6 +1,8 @@
+.body{
+
+}
 #datouno{
   background-color: black;
-  margin-top: 10px;
   width: 560px;
   height: 575px;
   float: left;
@@ -24,7 +26,6 @@ table {
 
 #datodos{
   background-color: black;
-  margin-top: 10px;
   width: 789px;
   height: 575px;
   float: left;

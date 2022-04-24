@@ -5,7 +5,7 @@ import {HttpClient, HttpHeaders}from '@angular/common/http'
   providedIn: 'root'
 })
 export class LogRegService {
-  url:string="http://127.0.0.1:3333/"
+  url:string="http://18.117.157.200:3333/"
 
   constructor(private httpclient:HttpClient) { }
 

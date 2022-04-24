@@ -8,12 +8,12 @@ import {mostrarDatos,ValorAltoGas,ValorBajoGas } from '../Modelos/datosGas'
 })
 export class SensorGasService {
 
-  url:string="http://127.0.0.1:3333/"
+  url:string="http://18.117.157.200:3333/"
 
   constructor(private httpclient:HttpClient) { }
 
   DatosGas(): Observable<mostrarDatos[]>{
-    const direccion=this.url+"DatosGas"
+    const direccion=this.url+"mostrarGas"
     return this.httpclient.get<mostrarDatos[]>(direccion)
   }
 }

@@ -14,12 +14,12 @@ const routes: Routes = [
   {path: '', redirectTo:'login', pathMatch:'full'},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
-  {path:'inicio',component:InicioComponent},
+  {path:'inicio',component:InicioComponent,canActivate:[GuardianGuard]},
   {path:'carga',component:PantallacargaComponent},
-  {path:'grafTempyHum',component:GraficatemperaturaComponent},
-  {path:'grafGas',component:GraficaGasComponent},
-  {path:'grafLed',component:GraficaLedComponent},
-  {path:'DatosMovimiento',component:DatosMovimientoComponent},
+  {path:'grafTempyHum',component:GraficatemperaturaComponent,canActivate:[GuardianGuard]},
+  {path:'grafGas',component:GraficaGasComponent,canActivate:[GuardianGuard]},
+  {path:'grafLed',component:GraficaLedComponent,canActivate:[GuardianGuard]},
+  {path:'DatosMovimiento',component:DatosMovimientoComponent,canActivate:[GuardianGuard]},
 ]
 
 @NgModule({

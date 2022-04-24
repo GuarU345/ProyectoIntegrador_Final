@@ -8,32 +8,32 @@ import { mostrarDatos,ValorAltoTemyHum,ValorBajoTemyHum,InsertarFecha } from '..
 })
 export class SensorTemYHumService {
 
-  url:string="http://127.0.0.1:3333/"
+  url:string="http://18.117.157.200:3333/"
 
   constructor(private httpclient:HttpClient) { }
 
   DatosTemyHum(): Observable<mostrarDatos[]>{
-    const direccion=this.url+"DatosTemyHum"
+    const direccion=this.url+"mostrarTempyHum"
     return this.httpclient.get<mostrarDatos[]>(direccion)
   }
 
   DatosTemyHumGrafica(): Observable<mostrarDatos[]>{
-    const direccion=this.url+"DatosTemyHumGrafica"
+    const direccion=this.url+"mostrarTempyHumGrafica"
     return this.httpclient.get<mostrarDatos[]>(direccion)
   }
 
   InsertarFecha(from:InsertarFecha): Observable<InsertarFecha[]>{
-    const direccion=this.url+"filtrarTemyHum"
+    const direccion=this.url+"filtrarTempyHum"
     return this.httpclient.post<InsertarFecha[]>(direccion,from)
   }
 
   ValorAltoTemyHum(): Observable<ValorAltoTemyHum[]>{
-    const direccion=this.url+"ValorAltoTemyHum"
+    const direccion=this.url+"valorAltoTempyHum"
     return this.httpclient.get<ValorAltoTemyHum[]>(direccion)
   }
 
   ValorBajoTemyHum(): Observable<ValorBajoTemyHum[]>{
-    const direccion=this.url+"ValorBajoTemyHum"
+    const direccion=this.url+"valorBajoTempyHum"
     return this.httpclient.get<ValorBajoTemyHum[]>(direccion)
   }
 }

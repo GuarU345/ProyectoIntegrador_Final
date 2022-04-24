@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(()=>{
       this.load=true
-    },2500)
+    },1000)
   }
 
   get CorreoValidation(){

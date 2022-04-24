@@ -8,15 +8,15 @@ import { mostrarDatosLed,Insertar,ContadorLed,InsertarFecha } from '../Modelos/d
 })
 export class SensorLedService {
 
-  url:string="http://127.0.0.1:3333/"
+  url:string="http://18.117.157.200:3333/"
 
   constructor(private httpclient:HttpClient) { }
 
   DatosLed(): Observable<mostrarDatosLed[]>{
-    const direccion=this.url+"DatosLed"
+    const direccion=this.url+"mostrarLed"
     return this.httpclient.get<mostrarDatosLed[]>(direccion)
   }
-  
+
   InsertarLed(from:Insertar): Observable<Insertar[]>{
     const direccion=this.url+"insertarLed"
     return this.httpclient.post<Insertar[]>(direccion,from)

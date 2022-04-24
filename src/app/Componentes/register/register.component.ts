@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { usuario } from 'src/app/Modelos/Usuario';
 import { LogRegService } from 'src/app/Servicios/log-reg.service';
 
@@ -22,7 +23,7 @@ export class RegisterComponent implements OnInit {
     "password":''
   }
 
-  constructor(private servicereg:LogRegService) {
+  constructor(private servicereg:LogRegService,private router:Router) {
 
    }
    register(){
@@ -32,7 +33,8 @@ export class RegisterComponent implements OnInit {
         this.registro.email=""
         this.registro.password=""
         console.log(reg)
-
+        alert("Usuario creado correctamente")
+        this.router.navigate(['/login'])
       },error=>{
         alert(error.error.errors[0].message)
       })
@@ -44,7 +46,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(()=>{
      this.load=true
-    },2500)
+    },1000)
   }
 
   get UsuarioValidation(){

@@ -1,6 +1,6 @@
 .body{
   width: 100%;
-  position: absolute;
+  position: fixed;
   height: 91.5%;
   background-color: black;
 }

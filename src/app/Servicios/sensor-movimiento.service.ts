@@ -8,12 +8,12 @@ import { mostrarDatos } from '../Modelos/datosMovimiento'
 })
 export class SensorMovimientoService {
 
-  url:string="http://127.0.0.1:3333/"
+  url:string="http://18.117.157.200:3333/"
 
   constructor(private httpclient:HttpClient) { }
 
   mostrarMovimiento(): Observable<mostrarDatos[]>{
-    const direccion=this.url+"mostrarMovimiento"
+    const direccion=this.url+"mostrarMovi"
     return this.httpclient.get<mostrarDatos[]>(direccion)
   }
 }

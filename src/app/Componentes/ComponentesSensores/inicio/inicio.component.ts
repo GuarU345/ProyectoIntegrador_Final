@@ -13,7 +13,7 @@ export class InicioComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(()=>{
       this.load=true
-    },2500)
+    },1000)
   }
 
 }

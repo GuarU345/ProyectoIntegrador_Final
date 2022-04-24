@@ -12,15 +12,14 @@ export class GuardianGuard implements CanActivate {
 
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    state: RouterStateSnapshot): boolean{
 
       if(localStorage.getItem('token')){
-        this.router.navigate(['inicio'])
         return true
       }else{
         this.router.navigate(['login'])
         return false
       }
   }
-  
+
 }
