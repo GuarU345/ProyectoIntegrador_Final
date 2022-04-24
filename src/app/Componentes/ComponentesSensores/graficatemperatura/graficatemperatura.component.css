@@ -1,9 +1,21 @@
 #datouno{
   background-color: black;
-  margin-top: 30px;
+  margin-top: 10px;
   width: 560px;
-  height: 550px;
+  height: 575px;
   float: left;
+}
+
+#fan{
+  background-color: white;
+}
+
+.card{
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
 }
 
 .color{
@@ -12,8 +24,22 @@
 
 #datodos{
   background-color: black;
-  margin-top: 30px;
+  margin-top: 10px;
   width: 789px;
-  height: 550px;
+  height: 575px;
+  float: left;
+}
+
+#datotres{
+  background-color: black;
+  width: 674px;
+  height: 200px;
+  float: left;
+}
+
+#datocuatro{
+  background-color: black;
+  width: 675px;
+  height: 200px;
   float: left;
 }

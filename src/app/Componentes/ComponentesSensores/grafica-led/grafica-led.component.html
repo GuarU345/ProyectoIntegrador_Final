@@ -1,35 +1,83 @@
 <app-dashboard></app-dashboard>
 
-<div align="center" class="container form-control" id="datouno">
-    <h1 align="center" class="color">Sensor Led</h1>
-    <form [formGroup]="nuevoFormuno" (ngSubmit)="postForm(nuevoFormuno.value)">
-        <input type="hidden" formControlName="led">
-        <button id="botonuno" type="submit" class="btn btn-success">
-            Encender
-        </button>
-    </form>
-    <form [formGroup]="nuevoFormdos" (ngSubmit)="postForm(nuevoFormdos.value)">
-        <input type="hidden" formControlName="led">
-        <button id="botondos" type="submit" class="btn btn-danger">
-            Apagar
-        </button>
-    </form>
-</div>
-
-<div class="container" id="datodos">
-    <h1 align="center" class="color">Datos Led</h1>
-    <table class="table table-dark table-hover table-striped table-bordered">
-        <thead>
-          <tr>
-            <th width="50%" class="text-center">Led</th>
-            <th width="50%" class="text-center">Fecha</th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let datos of datosled">
-                <td class="text-center">{{ datos.led }}</td>
-                <td class="text-center">{{ datos.fecha }}</td>
-            </tr>
-        </tbody>
-    </table>
+<div class="body">
+    <div align="center" class="container form-control" id="datouno">
+        <h1 align="center" class="color">Sensor Led Contador</h1>
+        <div class="coun-temporizador">
+            <div class="bloque" *ngFor="let led of contaodrled">
+                <div>{{led.count}}</div>
+            </div>
+        </div>
+        <div class="titulouno">
+            <p>Encendidas</p>
+        </div>
+        <div class="titulodos">
+            <p>Apagadas</p>
+        </div>
+        <h1 class="tituloo">Interruptor Led</h1>
+        <div class="acomdouno">
+            <form [formGroup]="nuevoFormuno" (ngSubmit)="postForm(nuevoFormuno.value)">
+                <input type="hidden" formControlName="led">
+                <button id="botonuno" type="submit" class="btn btn-success">
+                    Encender
+                </button>
+            </form>
+        </div>
+        <div class="acomdodos">
+            <form [formGroup]="nuevoFormdos" (ngSubmit)="postForm(nuevoFormdos.value)">
+                <input type="hidden" formControlName="led">
+                <button id="botondos" type="submit" class="btn btn-danger">
+                    Apagar
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="container" id="datodos">
+        <div class="row">
+          <div class="col-12">
+            <mat-card class="card">
+              <h1 align="center" id="titulo">Datos Led</h1>
+              <mat-form-field>
+                <mat-label>Buscar</mat-label>
+                <input matInput (keyup)="filtrar($event)" placeholder="buscar">
+              </mat-form-field>
+              <form [formGroup]="filtrarfecha" (ngSubmit)="filtrarLed(filtrarfecha.value)" id="fil">
+                <mat-form-field appearance="fill" id="filtrar">
+                  <mat-label>Choose a date</mat-label>
+                  <input matInput [matDatepicker]="picker" formControlName="fecha">
+                  <mat-hint>MM/DD/YYYY</mat-hint>
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <button type="submit" class="btn btn-success">Filtrar</button>
+              </form>
+              <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      
+                <!--- Note that these columns can be defined in any order.
+                      The actual rendered columns are set as a property on the row definition" -->
+              
+                <!-- Name Column -->
+                <ng-container matColumnDef="led">
+                  <th mat-header-cell *matHeaderCellDef> Led </th>
+                  <td mat-cell *matCellDef="let element"> {{element.led}} </td>
+                </ng-container>
+      
+                <!-- Name Column -->
+                <ng-container matColumnDef="fecha">
+                  <th mat-header-cell *matHeaderCellDef> Fecha </th>
+                  <td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
+                </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>       
+              <mat-paginator [pageSizeOptions]="[2, 4, 6]"
+                       showFirstLastButtons 
+                       aria-label="Select page of periodic elements">
+              </mat-paginator> 
+            </mat-card>
+          </div>
+        </div>
+      </div>
 </div>

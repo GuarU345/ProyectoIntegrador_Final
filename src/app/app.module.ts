@@ -12,11 +12,17 @@ import { PantallacargaComponent } from './Componentes/pantallacarga/pantallacarg
 import { GraficatemperaturaComponent } from './Componentes/ComponentesSensores/graficatemperatura/graficatemperatura.component';
 import { InicioComponent } from './Componentes/ComponentesSensores/inicio/inicio.component';
 import { NgChartsModule } from 'ng2-charts';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatCardModule} from '@angular/material/card';
+import {MatTableModule} from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 import { GraficaGasComponent } from './Componentes/ComponentesSensores/grafica-gas/grafica-gas.component';
 import { DatosMovimientoComponent } from './Componentes/ComponentesSensores/datos-movimiento/datos-movimiento.component';
 import { DashboardComponent } from './Componentes/dashboard/dashboard.component';
 import { GraficaLedComponent } from './Componentes/ComponentesSensores/grafica-led/grafica-led.component';
-
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +42,13 @@ import { GraficaLedComponent } from './Componentes/ComponentesSensores/grafica-l
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NgChartsModule
+    NgChartsModule,
+    MatPaginatorModule,
+    MatCardModule,
+    MatTableModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     {

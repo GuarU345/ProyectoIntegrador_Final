@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders}from '@angular/common/http'
 import { Observable } from 'rxjs'
-import { mostrarDatos } from '../Modelos/datosGas'
+import {mostrarDatos,ValorAltoGas,ValorBajoGas } from '../Modelos/datosGas'
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +14,6 @@ export class SensorGasService {
 
   DatosGas(): Observable<mostrarDatos[]>{
     const direccion=this.url+"DatosGas"
-    return this.httpclient.get<mostrarDatos[]>(direccion)
-  }
-
-  DatosGasGrafica(): Observable<mostrarDatos[]>{
-    const direccion=this.url+"DatosGasGrafica"
     return this.httpclient.get<mostrarDatos[]>(direccion)
   }
 }

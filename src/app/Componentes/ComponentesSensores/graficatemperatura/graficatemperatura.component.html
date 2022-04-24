@@ -1,26 +1,102 @@
 <app-dashboard></app-dashboard>
 
-<div class="container" id="datouno">
-    <h1 align="center" class="color">Datos Temperatura y Humedad</h1>
-    <table class="table table-dark table-hover table-striped table-bordered">
-        <thead>
-          <tr>
-            <th width="25%" class="text-center">Temperatura</th>
-            <th width="25%" class="text-center">Humedad</th>
-            <th width="50%" class="text-center">Fecha</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let datos of mostrar">
-            <td class="text-center">{{ datos.temperatura }}</td>
-            <td class="text-center">{{ datos.humedad }}</td>
-            <td class="text-center">{{ datos.fecha }}</td>
-          </tr>
-        </tbody>
-    </table>
+<div class="body">
+  <div class="container" id="datouno">
+  <div class="row">
+    <div class="col-12">
+      <mat-card class="card">
+        <h1 align="center" id="titulo">Datos Temperatura y Humedad</h1>
+        <mat-form-field>
+          <mat-label>Buscar</mat-label>
+          <input matInput (keyup)="filtrar($event)" placeholder="buscar">
+        </mat-form-field>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+        
+          <!-- Name Column -->
+          <ng-container matColumnDef="temperatura">
+            <th mat-header-cell *matHeaderCellDef> Temperatura </th>
+            <td mat-cell *matCellDef="let element"> {{element.temperatura}} </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="humedad">
+            <th mat-header-cell *matHeaderCellDef> Humedad </th>
+            <td mat-cell *matCellDef="let element"> {{element.humedad}} </td>
+          </ng-container>
+
+           <!-- Name Column -->
+           <ng-container matColumnDef="fecha">
+            <th mat-header-cell *matHeaderCellDef> Fecha </th>
+            <td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>       
+        <mat-paginator [pageSizeOptions]="[5]"
+                 showFirstLastButtons 
+                 aria-label="Select page of periodic elements">
+        </mat-paginator> 
+      </mat-card>
+    </div>
+  </div>
 </div>
 
 <div class="container" id="datodos">
-    <h1 class="color" align="center">Grafica Datos</h1>
-    <canvas id="canvas">{{ chart }}</canvas>
+  <h1 class="color" align="center">Grafica Datos</h1>
+  <form [formGroup]="nuevoFormuno" (ngSubmit)="postForm(nuevoFormuno.value)" id="fan">
+    <mat-form-field appearance="fill">
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="fecha">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <button type="submit" class="btn btn-success">Filtrar</button>
+  </form>
+  <canvas id="canvas">{{ chart }}</canvas>
+</div>
+
+<div class="container" id="datotres">
+<h1 class="color" align="center">Temperatura y Humeda mas alta</h1>
+<table class="table table-dark table-hover table-bordered">
+    <thead>
+      <tr>
+        <th width="25%" class="text-center">Temperatura</th>
+        <th width="25%" class="text-center">Humedad</th>
+        <th width="50%" class="text-center">Fecha</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ValorAlto of ValorAlto">
+        <td class="text-center" style="background-color: red;">{{ ValorAlto.temperatura }}</td>
+        <td class="text-center" style="background-color: red;">{{ ValorAlto.humedad }}</td>
+        <td class="text-center" style="background-color: red;">{{ ValorAlto.fecha }}</td>
+      </tr>
+    </tbody>
+</table>
+</div>
+
+<div class="container" id="datocuatro">
+<h1 class="color" align="center">Temperatura y Humedad mas baja</h1>
+<table class="table table-dark table-hover table-bordered">
+  <thead>
+    <tr>
+      <th width="25%" class="text-center">Temperatura</th>
+      <th width="25%" class="text-center">Humedad</th>
+      <th width="50%" class="text-center">Fecha</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ValorBajo of ValorBajo">
+      <td class="text-center" style="background-color: green;">{{ ValorBajo.temperatura }}</td>
+      <td class="text-center" style="background-color: green;">{{ ValorBajo.humedad }}</td>
+      <td class="text-center" style="background-color: green;">{{ ValorBajo.fecha }}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 </div>

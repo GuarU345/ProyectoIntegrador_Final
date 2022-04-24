@@ -8,6 +8,7 @@ import { RegisterComponent } from './Componentes/register/register.component';
 import { GraficaGasComponent } from './Componentes/ComponentesSensores/grafica-gas/grafica-gas.component'
 import { DatosMovimientoComponent } from './Componentes/ComponentesSensores/datos-movimiento/datos-movimiento.component'
 import { GraficaLedComponent } from './Componentes/ComponentesSensores/grafica-led/grafica-led.component'
+import { GuardianGuard } from './Componentes/Guards/guardian.guard'
 
 const routes: Routes = [
   {path: '', redirectTo:'login', pathMatch:'full'},

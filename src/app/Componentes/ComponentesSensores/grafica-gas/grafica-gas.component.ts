@@ -1,9 +1,10 @@
 import { interval } from 'rxjs';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SensorGasService } from '../../../Servicios/sensor-gas.service'
-import { Chart, registerables } from 'chart.js'
-import { mostrarDato } from '../../../Modelos/datosGas'
+import { ValorAltoGas,ValorBajoGas,mostrarDatos } from '../../../Modelos/datosGas'
 import { Router, ActivatedRoute } from '@angular/router'
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-grafica-gas',
@@ -12,96 +13,25 @@ import { Router, ActivatedRoute } from '@angular/router'
 })
 export class GraficaGasComponent implements OnInit {
 
-  constructor(private api:SensorGasService,private activarrouter:ActivatedRoute,private router:Router) {
-    Chart.register(...registerables)
-   }
+  constructor(private api:SensorGasService,private activarrouter:ActivatedRoute,private router:Router) { }
 
-  mostrar!:mostrarDato[]
-  chart: any = []
+  displayedColumns: string[] = ['_id', 'gas', 'fecha'];
+  dataSource = new MatTableDataSource<mostrarDatos>([]);;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+
+  mostrar!:mostrarDatos[]
+  ValorAlto!:ValorAltoGas[]
+  ValorBajo!:ValorBajoGas[]
 
   ngOnInit(): void {
-    this.api.DatosGasGrafica().subscribe(data => {
-      this.mostrar = data
+    this.api.DatosGas().subscribe(data => {
+      this.dataSource.data = data
       console.log(data)
-
-        this.chart = new Chart('canvas', {
-          type: 'bar',
-          data: {
-            labels: ['gas'],
-            datasets: [
-              {
-                label: 'Datos',
-                data: data[0],
-                borderWidth: 3,
-                backgroundColor: "green",
-                borderColor: '#1e95fd',
-              },
-              {
-                label: 'Datos',
-                data: data[1],
-                borderWidth: 3,
-                backgroundColor: "green",
-                borderColor: '#1e95fd',
-              },
-              {
-                label: 'Datos',
-                data: data[2],
-                borderWidth: 3,
-                backgroundColor: "green",
-                borderColor: '#1e95fd',
-              },
-              {
-                label: 'Datos',
-                data: data[3],
-                borderWidth: 3,
-                backgroundColor: "green",
-                borderColor: '#1e95fd',
-              },
-              {
-                label: 'Datos',
-                data: data[4],
-                borderWidth: 3,
-                backgroundColor: "green",
-                borderColor: '#1e95fd',
-              },
-              {
-                label: 'Datos',
-                data: data[5],
-                borderWidth: 3,
-                backgroundColor: "green",
-                borderColor: '#1e95fd',
-              },
-              {
-                label: 'Datos',
-                data: data[6],
-                borderWidth: 3,
-                backgroundColor: "green",
-                borderColor: '#1e95fd',
-              },
-              {
-                label: 'Datos',
-                data: data[7],
-                borderWidth: 3,
-                backgroundColor: "green",
-                borderColor: '#1e95fd',
-              },
-              {
-                label: 'Datos',
-                data: data[8],
-                borderWidth: 3,
-                backgroundColor: "green",
-                borderColor: '#1e95fd',
-              },
-              {
-                label: 'Datos',
-                data: data[9],
-                borderWidth: 3,
-                backgroundColor: "green",
-                borderColor: '#1e95fd',
-              }
-            ]
-          }
-        })
     })
 
     this.MostrarDatos()
@@ -115,5 +45,10 @@ export class GraficaGasComponent implements OnInit {
         console.log(this.mostrar)
       })
     })
+  }
+
+  filtrar(event: Event) {
+    const filtro = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filtro.trim().toLowerCase();
   }
 }

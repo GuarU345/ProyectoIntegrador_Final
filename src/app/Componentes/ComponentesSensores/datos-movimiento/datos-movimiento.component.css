@@ -1,10 +1,19 @@
-.container{
-    background-color: black;
-    width: 1000px;
-    height: 200px;
-    margin-top: 100px;
-  }
-  
-  .color{
-    color: white;
-  }
+.body{
+  width: 100%;
+  position: absolute;
+  height: 91.5%;
+  background-color: black;
+}
+
+.card{
+  margin-top: 25px;
+}
+
+#titulo{
+  padding-top: 10px;
+}
+
+table {
+  width: 100%;
+  padding-top: 100px;
+}

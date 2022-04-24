@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders}from '@angular/common/http'
 import { Observable } from 'rxjs'
-import { mostrarDatosLed,Insertar } from '../Modelos/datosLed'
+import { mostrarDatosLed,Insertar,ContadorLed,InsertarFecha } from '../Modelos/datosLed'
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,17 @@ export class SensorLedService {
   }
   
   InsertarLed(from:Insertar): Observable<Insertar[]>{
-    const direccion=this.url+"InsertarLed"
+    const direccion=this.url+"insertarLed"
     return this.httpclient.post<Insertar[]>(direccion,from)
+  }
+
+  ContadorLed(): Observable<ContadorLed[]>{
+    const direccion=this.url+"contadorLed"
+    return this.httpclient.get<ContadorLed[]>(direccion)
+  }
+
+  InsertarFecha(from:InsertarFecha): Observable<InsertarFecha[]>{
+    const direccion=this.url+"filtrarLed"
+    return this.httpclient.post<InsertarFecha[]>(direccion,from)
   }
 }

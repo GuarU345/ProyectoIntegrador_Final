@@ -1,6 +1,5 @@
 .fondo{
   background-color: black;
-
 }
 .txt1{
   color: white;
@@ -13,12 +12,6 @@
   margin-top: 200px;
   text-align: center;
   font-size: 80px;
-}
-.toggle{
-  margin-left: 860px;
-}
-.menu{
-  margin-left: 795.5px;
 }
 .centrar{
   text-align: center;

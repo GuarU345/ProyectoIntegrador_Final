@@ -72,11 +72,4 @@ export class LoginComponent implements OnInit {
   getUsuario(){
     return localStorage.getItem("usuario")
   }
-
-
-
-
-
-
-
 }
