@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders}from '@angular/common/http'
 import { Observable } from 'rxjs'
-import { mostrarDatos,ValorAltoTemyHum,ValorBajoTemyHum,InsertarFecha } from '../Modelos/datosTemyHum'
+import { mostrarDatos,ValorAltoTemyHum,ValorBajoTemyHum,InsertarFecha, FiltrarFecha } from '../Modelos/datosTemyHum'
 
 @Injectable({
   providedIn: 'root'
 })
 export class SensorTemYHumService {
 
-  url:string="http://18.117.157.200:3333/"
+  url:string="http://18.222.124.150:3333/"
 
   constructor(private httpclient:HttpClient) { }
 
@@ -25,6 +25,11 @@ export class SensorTemYHumService {
   InsertarFecha(from:InsertarFecha): Observable<InsertarFecha[]>{
     const direccion=this.url+"filtrarTempyHum"
     return this.httpclient.post<InsertarFecha[]>(direccion,from)
+  }
+
+  filtrarExcel(from:FiltrarFecha): Observable<FiltrarFecha[]>{
+    const direccion=this.url+"filtrarExcel"
+    return this.httpclient.post<FiltrarFecha[]>(direccion,from)
   }
 
   ValorAltoTemyHum(): Observable<ValorAltoTemyHum[]>{

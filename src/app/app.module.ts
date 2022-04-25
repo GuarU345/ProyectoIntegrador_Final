@@ -22,6 +22,7 @@ import { GraficaGasComponent } from './Componentes/ComponentesSensores/grafica-g
 import { DatosMovimientoComponent } from './Componentes/ComponentesSensores/datos-movimiento/datos-movimiento.component';
 import { DashboardComponent } from './Componentes/dashboard/dashboard.component';
 import { GraficaLedComponent } from './Componentes/ComponentesSensores/grafica-led/grafica-led.component';
+import { FiltroExcelComponent } from './Componentes/ComponentesSensores/filtro-excel/filtro-excel.component';
  
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { GraficaLedComponent } from './Componentes/ComponentesSensores/grafica-l
     GraficaGasComponent,
     DatosMovimientoComponent,
     DashboardComponent,
-    GraficaLedComponent
+    GraficaLedComponent,
+    FiltroExcelComponent
   ],
   imports: [
     BrowserModule,

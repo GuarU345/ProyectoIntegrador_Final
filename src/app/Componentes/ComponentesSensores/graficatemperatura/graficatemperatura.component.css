@@ -1,5 +1,5 @@
-.body{
-
+#excel{
+  margin-left: 250px;
 }
 #datouno{
   background-color: black;
@@ -10,6 +10,10 @@
 
 #fan{
   background-color: white;
+}
+
+#filtrar{
+  margin-top: -70px;
 }
 
 .card{

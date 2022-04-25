@@ -12,6 +12,13 @@ export interface InsertarFecha{
     fecha:Date
 }
 
+export interface FiltrarFecha{
+    _id:string
+    temperatura: string
+    humedad: string
+    fecha:Date
+}
+
 export interface mostrarDato{
     temperatura: string
     humedad: string

@@ -8,7 +8,7 @@ import { mostrarDatosLed,Insertar,ContadorLed,InsertarFecha } from '../Modelos/d
 })
 export class SensorLedService {
 
-  url:string="http://18.117.157.200:3333/"
+  url:string="http://18.222.124.150:3333/"
 
   constructor(private httpclient:HttpClient) { }
 

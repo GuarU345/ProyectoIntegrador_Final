@@ -1,12 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { SensorTemYHumService } from '../../../Servicios/sensor-tem-y-hum.service'
 import { Chart, registerables } from 'chart.js'
-import { mostrarDato, ValorAltoTemyHum,ValorBajoTemyHum ,InsertarFecha } from '../../../Modelos/datosTemyHum'
+import { mostrarDato, ValorAltoTemyHum,ValorBajoTemyHum ,InsertarFecha, FiltrarFecha } from '../../../Modelos/datosTemyHum'
 import { Router, ActivatedRoute } from '@angular/router'
 import { interval } from 'rxjs';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { FormGroup, FormControl } from '@angular/forms'
+import { FormGroup, FormControl } from '@angular/forms';
 
 
 @Component({
@@ -83,9 +83,9 @@ export class GraficatemperaturaComponent implements OnInit {
       var humedad = []
 
       for (var i in data) {
-        fecha.push(data[i].fecha)
         tempertura.push(data[i].temperatura);
         humedad.push(data[i].humedad);
+        fecha.push(data[i].fecha)
       }
 
       if(this.chart instanceof Chart)
